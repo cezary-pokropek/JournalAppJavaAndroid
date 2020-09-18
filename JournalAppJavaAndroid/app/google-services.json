@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1052831290451",
+    "firebase_url": "https://journal-2c937.firebaseio.com",
+    "project_id": "journal-2c937",
+    "storage_bucket": "journal-2c937.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052831290451:android:b17c9398562a0109df22a6",
+        "android_client_info": {
+          "package_name": "com.cezarypokropek.journal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052831290451-j90gnpuia7bfu4de5na89lomipsev6l7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHGE9U8OIPSBAiJ_ENRbYxUpww7uWPyVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052831290451-j90gnpuia7bfu4de5na89lomipsev6l7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
