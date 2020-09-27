@@ -9,4 +9,7 @@
     <string name="ot_text">Or</string>
     <string name="create_text">CREATE ACCOUNT</string>
     <string name="username_hint">Username</string>
+    <string name="post_title">Title</string>
+    <string name="thoughts">Your thoughts</string>
+    <string name="save_button">Save</string>
 </resources>

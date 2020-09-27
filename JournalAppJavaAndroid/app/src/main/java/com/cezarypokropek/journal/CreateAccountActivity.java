@@ -28,6 +28,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import util.JournalApi;
+
 public class CreateAccountActivity extends AppCompatActivity {
     private Button loginButton;
     private Button createAcctButton;
@@ -134,6 +136,9 @@ public class CreateAccountActivity extends AppCompatActivity {
                                                                     String name = task.getResult()
                                                                             .getString("username");
 
+                                                                    JournalApi journalApi = JournalApi.getInstance(); // Global API
+                                                                    journalApi.setUserId(currentUserId);
+                                                                    journalApi.setUsername(name);
 
                                                                     Intent intent = new Intent(CreateAccountActivity.this,
                                                                             PostJournalActivity.class);
