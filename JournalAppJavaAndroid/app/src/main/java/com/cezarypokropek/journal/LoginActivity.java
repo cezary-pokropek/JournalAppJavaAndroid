@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private FirebaseUser currentUser;
+    private ProgressBar progressBar;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference collectionReference = db.collection("Users");
@@ -47,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        progressBar = findViewById(R.id.login_progress);
 
         loginButton = findViewById(R.id.email_sing_in_button);
         createAcctButton = findViewById(R.id.create_acct_button_login);
@@ -74,6 +77,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void loginEmailPasswordUser(String email, String pwd) {
 
+        progressBar.setVisibility(View.VISIBLE);
+
         if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(pwd)) {
 
             firebaseAuth.signInWithEmailAndPassword(email, pwd).
@@ -93,16 +98,14 @@ public class LoginActivity extends AppCompatActivity {
                                                         }
                                                         assert value != null;
                                                         if(!value.isEmpty()){
+                                                            progressBar.setVisibility(View.INVISIBLE);
                                                             for(QueryDocumentSnapshot snapshot : value){
-
                                                                 JournalApi journalApi = JournalApi.getInstance();
                                                                 journalApi.setUsername(snapshot.getString("username"));
                                                                 journalApi.setUserId(snapshot.getString("userId"));
 
                                                                 // Go to ListActivity
                                                                 startActivity(new Intent(LoginActivity.this, PostJournalActivity.class));
-
-
                                                             }
                                                         }
 
@@ -114,11 +117,14 @@ public class LoginActivity extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
+                            progressBar.setVisibility(View.VISIBLE);
 
                         }
                     });
 
         } else {
+            progressBar.setVisibility(View.INVISIBLE);
+
             Toast.makeText(LoginActivity.this, "Please enter email and password", Toast.LENGTH_LONG).show();
         }
 

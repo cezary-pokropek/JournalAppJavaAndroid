@@ -12,4 +12,10 @@
     <string name="post_title">Title</string>
     <string name="thoughts">Your thoughts</string>
     <string name="save_button">Save</string>
+    <string name="menu_title">Add Thoughts</string>
+    <string name="signout">Signout</string>
+    <string name="no_thoughts_hint">Write a Journal Entry by clicking the \"+\" icon above!</string>
+    <string name="title">Title</string>
+    <string name="thoughts_cardview">Thoughts...</string>
+    <string name="date_created_cardview">Date Created</string>
 </resources>
