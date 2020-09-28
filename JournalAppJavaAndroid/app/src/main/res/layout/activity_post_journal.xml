@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/gradient_bg"
     android:layout_height="match_parent"
     tools:context=".PostJournalActivity">
 
@@ -14,7 +15,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:src="@drawable/image_three"
+        android:src="@drawable/image_two"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
@@ -26,11 +28,12 @@
         android:id="@+id/post_username_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#F1F1F1"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/postCameraButton"
         tools:text="Andrew" />
@@ -43,10 +46,10 @@
         android:textColor="#F1F1F1"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.209"
+        app:layout_constraintHorizontal_bias="0.082"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_username_textview"
-        tools:text="Today" />
+        android:text="@string/today_text_view_activity_post_journal" />
 
     <ImageView
         android:id="@+id/postCameraButton"
@@ -66,6 +69,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/input_outline"
+
         android:ems="10"
         android:hint="@string/post_title"
         android:inputType="textPersonName"
@@ -76,14 +81,18 @@
 
     <EditText
         android:id="@+id/post_description_et"
-        android:layout_width="392dp"
-        android:layout_height="45dp"
+        android:layout_width="388dp"
+        android:layout_height="74dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/input_outline"
         android:ems="10"
         android:hint="@string/thoughts"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
+        android:padding="15dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"

@@ -18,4 +18,6 @@
     <string name="title">Title</string>
     <string name="thoughts_cardview">Thoughts...</string>
     <string name="date_created_cardview">Date Created</string>
+    <string name="journal_row_username_textview">journal row username</string>
+    <string name="today_text_view_activity_post_journal">Today</string>
 </resources>

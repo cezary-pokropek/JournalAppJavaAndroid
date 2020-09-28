@@ -1,10 +1,13 @@
 package UI;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +19,7 @@ import com.cezarypokropek.journal.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Set;
 
 import model.Journal;
 
@@ -44,8 +48,9 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
 
         holder.title.setText(journal.getTitle());
         holder.thoughts.setText(journal.getThought());
-//        holder.name.setText(journal.getUserName());
+        holder.name.setText(journal.getUserName());
         imageUrl = journal.getImageUrl();
+
         // source : https://medium.com/@shaktisinh/time-a-go-in-android-8bad8b171f87
         String timeAgo = (String) DateUtils.getRelativeTimeSpanString(journal.getTimeAdded().getSeconds() * 1000);
         holder.dateAdded.setText(timeAgo);
@@ -58,7 +63,6 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
                 .placeholder(R.drawable.image_two)
                 .fit()
                 .into(holder.image);
-
     }
 
     @Override
@@ -69,6 +73,7 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView title, thoughts, dateAdded, name;
         public ImageView image;
+        public ImageButton shareButton;
         String userId;
         String username;
 
@@ -80,7 +85,17 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
             thoughts = itemView.findViewById(R.id.journal_thought_list);
             dateAdded = itemView.findViewById(R.id.journal_timestamp_list);
             image = itemView.findViewById(R.id.journal_image_list);
-//            name = itemView.findViewById(R.id.username_account);
+            name = itemView.findViewById(R.id.journal_row_username);
+            shareButton = itemView.findViewById(R.id.journal_row_share_button);
+
+            shareButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("image/jpeg");
+                    context.startActivity(Intent.createChooser(intent, "share via"));
+                }
+            });
 
         }
 
